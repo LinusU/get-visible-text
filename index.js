@@ -1,10 +1,12 @@
+/* eslint-env browser */
+
 function getVisibleText (element) {
   if (!element) return ''
 
   switch (element.nodeType) {
-    case 1:
-    case 9:
-    case 11:
+    case Node.ELEMENT_NODE:
+    case Node.DOCUMENT_NODE:
+    case Node.DOCUMENT_FRAGMENT_NODE:
       switch (element.tagName) {
         case 'CANVAS':
         case 'HEAD':
@@ -39,8 +41,8 @@ function getVisibleText (element) {
       }
 
       return result.replace(/\s+/g, ' ')
-    case 3:
-    case 4:
+    case Node.TEXT_NODE:
+    case Node.CDATA_SECTION_NODE:
       return element.nodeValue.replace(/\s+/g, ' ')
     default:
       return ''
