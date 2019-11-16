@@ -1,3 +1,5 @@
+/* eslint-disable no-case-declarations */
+
 function getVisibleText (element) {
   if (!element) return ''
 
